@@ -137,5 +137,5 @@ For questions or feedback:
 
 **Mostafa Akajdid**  
 📧 mostafaakajdid6@gmail.com  
-🔗 [LinkedIn](https://www.linkedin.com/in/mostafa-akajdid/)
+🔗 [LinkedIn](https://www.linkedin.com/in/mostafa-akajdid-774735232/)
 ```
