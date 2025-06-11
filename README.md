@@ -1,110 +1,141 @@
-# Skip Hire Selection Interface - React Redesign
+```markdown
+# 🚛 Skip Hire Selection Interface — React Redesign
 
 ![Skip Hire Interface Preview](https://i.ibb.co/dwPMwNB7/Business-Skip-Hire.jpg)
 
-A complete redesign of the WeWantWaste skip selection interface with modern React implementation, responsive design, and enhanced UX.
+A complete redesign of the WeWantWaste skip selection interface, featuring a modern React implementation with responsive design and enhanced user experience.
 
-## Live Demo
+---
 
-https://wewantwastecouk.vercel.app/
+## 🚀 Live Demo
 
-## Features
+👉 [View Live](https://wewantwastecouk.vercel.app/)
 
-- **Modern UI Design**: Complete visual overhaul with gradient theme
-- **Fully Responsive**: Optimized for mobile, tablet, and desktop
-- **Interactive Elements**: Hover effects, smooth transitions, clear selection states
-- **Accessibility**: WCAG compliant with keyboard navigation
-- **Performance Optimized**: Fast loading with efficient rendering
+---
 
-## Technology Stack
+## ✨ Features
 
-- React 19
-- Vite 6
-- Tailwind CSS 3
-- PostCSS
-- React Icons (custom SVG implementation)
+- **Modern UI Design** – Fresh gradient-based theme with sleek cards  
+- **Fully Responsive** – Optimized for mobile, tablet, and desktop  
+- **Interactive Elements** – Hover effects, smooth transitions, selection feedback  
+- **Accessibility-First** – WCAG-compliant, keyboard-friendly navigation  
+- **Performance Optimized** – Fast-loading, lightweight components
 
-## Installation
+---
+
+## 🛠️ Technology Stack
+
+- **React 19**
+- **Vite 6**
+- **Tailwind CSS 3**
+- **PostCSS**
+- **React Icons** (custom SVG implementation)
+
+---
+
+## 📦 Installation
 
 1. Clone the repository:
    ```bash
    git clone https://github.com/akajdid-mostafa/Test
    cd Test
-Install dependencies:
+   ```
 
-bash
-npm install
-Run development server:
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
 
-bash
-npm run dev
-Project Structure
-text
+3. Start the development server:
+   ```bash
+   npm run dev
+   ```
+
+---
+
+## 📁 Project Structure
+
+```
 src/
-├── App.jsx          # Main application component
-├── main.jsx         # React entry point
-├── index.css        # Global styles
-└── App.css          # Component styles
-Key Improvements
-UI/UX Enhancements
-Modern card design with visual hierarchy
+├── App.jsx        # Main application component
+├── main.jsx       # React entry point
+├── index.css      # Global styles
+└── App.css        # Component styles
+```
 
-Sticky selection summary at bottom
+---
 
-Clear selection states with visual feedback
+## 🔧 Key Improvements
 
-Loading and error states with animations
+### 🧩 UI/UX Enhancements
 
-Technical Implementation
-Clean component architecture
+- Modern card layout with clear visual hierarchy  
+- Sticky selection summary at the bottom  
+- Animated loading and error states  
+- Visual feedback on user actions (hover, click, error, etc.)
 
-Efficient API handling with error management
+### ⚙️ Technical Implementation
 
-Responsive grid system (1 → 2 → 4 columns)
+- Clean and modular component architecture  
+- Optimized API handling with built-in error fallback  
+- Responsive grid system: `1 → 2 → 4` columns  
+- Accessibility: ARIA roles, focus outlines, semantic markup
 
-Accessibility features (focus states, ARIA)
+---
 
-Design System
-Colors
-Purpose	Color Code
-Primary	#2563eb → #4f46e5 (gradient)
-Success	#10b981
-Error	#ef4444
-Background	#f8fafc
-Typography
-Headings: Bold with gradient text
+## 🎨 Design System
 
-Body: System UI stack for performance
+### Colors
 
-Interactive: Clear hover/focus states
+| Purpose    | Color Code                        |
+|------------|-----------------------------------|
+| Primary    | `#2563eb → #4f46e5` (gradient)    |
+| Success    | `#10b981`                         |
+| Error      | `#ef4444`                         |
+| Background | `#f8fafc`                         |
 
-Responsive Behavior
-Breakpoint	Columns	Features
-< 640px (Mobile)	1	Compact cards, larger touch targets
-640-1024px	2	Adjusted spacing, optimized layout
-> 1024px	3-4	Full feature set, enhanced visuals
-Available Scripts
-npm run dev: Start development server
+### Typography
 
-npm run build: Create production build
+- **Headings**: Bold, gradient-text enabled  
+- **Body**: System UI stack for maximum performance  
+- **Interactive**: Clear hover/focus/active states
 
-npm run preview: Locally preview production build
+---
 
-npm run lint: Run ESLint for code quality
+## 📱 Responsive Behavior
 
-Deployment
-This project can be deployed to:
+| Breakpoint         | Columns | Features                                |
+|--------------------|---------|-----------------------------------------|
+| `< 640px` (Mobile) | 1       | Compact layout, large touch targets     |
+| `640–1024px`       | 2       | Optimized layout with balanced spacing  |
+| `> 1024px`         | 3–4     | Full-featured view, enhanced visuals    |
 
-Vercel 
+---
 
+## ⚙️ Available Scripts
 
-GitHub Pages
+- `npm run dev` – Start development server  
+- `npm run build` – Create production-ready build  
+- `npm run preview` – Preview production build locally  
+- `npm run lint` – Run ESLint for code quality
 
-Any static host
+---
 
-Contact
-For questions about this implementation:
+## ☁️ Deployment Options
 
-Mostafa Akajdid
-mostafaakajdid6@gmail.com
-LinkedIn Profile
+This app can be deployed on:
+
+- [Vercel](https://vercel.com)  
+- GitHub Pages  
+- Any static file host (Netlify, Firebase Hosting, etc.)
+
+---
+
+## 📬 Contact
+
+For questions or feedback:
+
+**Mostafa Akajdid**  
+📧 mostafaakajdid6@gmail.com  
+🔗 [LinkedIn](https://www.linkedin.com/in/mostafa-akajdid/)
+```
