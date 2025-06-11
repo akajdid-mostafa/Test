@@ -1,9 +1,9 @@
-```markdown
 # 🚛 Skip Hire Selection Interface — React Redesign
 
 ![Skip Hire Interface Preview](https://i.ibb.co/dwPMwNB7/Business-Skip-Hire.jpg)
 
-A complete redesign of the WeWantWaste skip selection interface, featuring a modern React implementation with responsive design and enhanced user experience.
+A complete redesign of the WeWantWaste skip selection interface,  
+featuring a modern React implementation with responsive design and improved UX.
 
 ---
 
@@ -15,31 +15,31 @@ A complete redesign of the WeWantWaste skip selection interface, featuring a mod
 
 ## ✨ Features
 
-- **Modern UI Design** – Fresh gradient-based theme with sleek cards  
-- **Fully Responsive** – Optimized for mobile, tablet, and desktop  
-- **Interactive Elements** – Hover effects, smooth transitions, selection feedback  
-- **Accessibility-First** – WCAG-compliant, keyboard-friendly navigation  
-- **Performance Optimized** – Fast-loading, lightweight components
+- **Modern UI Design** — Fresh gradient-based theme with sleek cards  
+- **Fully Responsive** — Optimized for mobile, tablet, and desktop  
+- **Interactive Elements** — Hover effects, smooth transitions, selection feedback  
+- **Accessibility-First** — WCAG-compliant, keyboard-friendly navigation  
+- **Performance Optimized** — Fast-loading, lightweight components  
 
 ---
 
 ## 🛠️ Technology Stack
 
-- **React 19**
-- **Vite 6**
-- **Tailwind CSS 3**
-- **PostCSS**
-- **React Icons** (custom SVG implementation)
+- **React 19**  
+- **Vite 6**  
+- **Tailwind CSS 3**  
+- **PostCSS**  
+- **React Icons** (custom SVG implementation)  
 
 ---
 
 ## 📦 Installation
 
 1. Clone the repository:
+
    ```bash
    git clone https://github.com/akajdid-mostafa/Test
    cd Test
-   ```
 
 2. Install dependencies:
    ```bash
