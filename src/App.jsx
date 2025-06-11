@@ -1,4 +1,4 @@
-"use client"
+
 
 import { useState, useEffect } from "react"
 
@@ -125,9 +125,13 @@ const LoaderIcon = ({ className = "w-12 h-12" }) => (
   </svg>
 )
 
+// Helper function to generate a placeholder image URL for skips
+// This function now uses more "realistic" looking placeholders
+
+
 // Skip Card component
 function SkipCard({ skip, onSelect, isSelected }) {
-  const totalPrice = Math.round(skip.price_before_vat * (1 + skip.vat / 100))
+  const totalPrice = Math.round(skip.price_before_vat * (1 + skip.vat / 100));
 
   return (
     <div
@@ -143,14 +147,14 @@ function SkipCard({ skip, onSelect, isSelected }) {
       onClick={() => onSelect(skip.id)}
     >
       {/* Skip Image Section */}
-      <div className="relative h-48 bg-gradient-to-br from-amber-100 to-orange-100 flex items-center justify-center overflow-hidden">
+      <div className="relative h-48 bg-gradient-to-br from-amber-100 to-orange-100 flex items-center justify-center overflow-hidden rounded-t-xl">
         <img
-          src={`https://placehold.co/300x200/FACC15/4B5563?text=Skip+${skip.size}+Yards`}
+          src="https://i.ibb.co/dwPMwNB7/Business-Skip-Hire.jpg"
           alt={`${skip.size} Yard Skip`}
           className="w-full h-full object-cover transition-transform duration-300 hover:scale-105"
           onError={(e) => {
-            e.target.onerror = null
-            e.target.src = "https://placehold.co/300x200/B0BEC5/455A64?text=Skip+Image+Unavailable"
+            e.target.onerror = null;
+            e.target.src = "https://placehold.co/300x200/B0BEC5/455A64?text=Image+Unavailable";
           }}
         />
 
@@ -216,8 +220,8 @@ function SkipCard({ skip, onSelect, isSelected }) {
 
           <button
             onClick={(e) => {
-              e.stopPropagation()
-              onSelect(skip.id)
+              e.stopPropagation(); // Prevent card's onClick from firing again
+              onSelect(skip.id);
             }}
             className={`
               inline-flex items-center px-4 py-2 rounded-lg font-medium transition-all duration-200 transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-offset-2
@@ -240,41 +244,41 @@ function SkipCard({ skip, onSelect, isSelected }) {
         </div>
       </div>
     </div>
-  )
+  );
 }
 
 // Main App component
 export default function App() {
-  const [skips, setSkips] = useState([])
-  const [loading, setLoading] = useState(true)
-  const [error, setError] = useState(null)
-  const [selectedSkipId, setSelectedSkipId] = useState(null)
+  const [skips, setSkips] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+  const [selectedSkipId, setSelectedSkipId] = useState(null);
 
-  const API_URL = "https://app.wewantwaste.co.uk/api/skips/by-location?postcode=NR32&area=Lowestoft"
+  const API_URL = "https://app.wewantwaste.co.uk/api/skips/by-location?postcode=NR32&area=Lowestoft";
 
   useEffect(() => {
     const fetchSkips = async () => {
       try {
-        const response = await fetch(API_URL)
+        const response = await fetch(API_URL);
         if (!response.ok) {
-          throw new Error(`HTTP error! status: ${response.status}`)
+          throw new Error(`HTTP error! status: ${response.status}`);
         }
-        const data = await response.json()
-        setSkips(data)
+        const data = await response.json();
+        setSkips(data);
       } catch (err) {
-        setError(err.message || "An error occurred")
+        setError(err.message || "An error occurred");
       } finally {
-        setLoading(false)
+        setLoading(false);
       }
-    }
+    };
 
-    fetchSkips()
-  }, [])
+    fetchSkips();
+  }, []);
 
   const handleSelectSkip = (id) => {
-    setSelectedSkipId(id)
-    console.log(`Skip with ID ${id} selected!`)
-  }
+    setSelectedSkipId(id);
+    console.log(`Skip with ID ${id} selected!`);
+  };
 
   if (loading) {
     return (
@@ -285,7 +289,7 @@ export default function App() {
           <p className="text-gray-500">Finding the perfect skip sizes for you...</p>
         </div>
       </div>
-    )
+    );
   }
 
   if (error) {
@@ -300,10 +304,10 @@ export default function App() {
           <p className="text-sm text-red-600 bg-red-50 p-3 rounded-lg">{error}</p>
         </div>
       </div>
-    )
+    );
   }
 
-  const selectedSkip = skips.find((s) => s.id === selectedSkipId)
+  const selectedSkip = skips.find((s) => s.id === selectedSkipId);
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50">
@@ -361,8 +365,6 @@ export default function App() {
           </div>
         </div>
       )}
-
-      
     </div>
-  )
+  );
 }
