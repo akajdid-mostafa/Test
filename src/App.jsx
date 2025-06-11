@@ -1,8 +1,12 @@
-
-
 import { useState, useEffect } from "react"
 
-// Icon components with proper sizing
+/*
+ * SVG Icon Components
+ * These are reusable icon components with customizable sizing
+ * Each icon is imported from Lucide icons (https://lucide.dev/)
+ */
+
+// Checkmark icon used for confirmation states
 const CheckIcon = ({ className = "w-5 h-5" }) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
@@ -18,6 +22,7 @@ const CheckIcon = ({ className = "w-5 h-5" }) => (
   </svg>
 )
 
+// Delivery truck icon for heavy waste indication
 const TruckIcon = ({ className = "w-4 h-4" }) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
@@ -36,6 +41,7 @@ const TruckIcon = ({ className = "w-4 h-4" }) => (
   </svg>
 )
 
+// Warning triangle for error/alert states
 const AlertTriangleIcon = ({ className = "w-4 h-4" }) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
@@ -53,6 +59,7 @@ const AlertTriangleIcon = ({ className = "w-4 h-4" }) => (
   </svg>
 )
 
+// Package icon for skip representation
 const PackageIcon = ({ className = "w-5 h-5" }) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
@@ -71,6 +78,7 @@ const PackageIcon = ({ className = "w-5 h-5" }) => (
   </svg>
 )
 
+// Clock icon for hire period display
 const ClockIcon = ({ className = "w-4 h-4" }) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
@@ -87,6 +95,7 @@ const ClockIcon = ({ className = "w-4 h-4" }) => (
   </svg>
 )
 
+// Right arrow for navigation/action buttons
 const ArrowRightIcon = ({ className = "w-5 h-5" }) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
@@ -103,6 +112,7 @@ const ArrowRightIcon = ({ className = "w-5 h-5" }) => (
   </svg>
 )
 
+// Loading spinner for async operations
 const LoaderIcon = ({ className = "w-12 h-12" }) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
@@ -125,12 +135,15 @@ const LoaderIcon = ({ className = "w-12 h-12" }) => (
   </svg>
 )
 
-// Helper function to generate a placeholder image URL for skips
-// This function now uses more "realistic" looking placeholders
-
-
-// Skip Card component
+/**
+ * SkipCard Component
+ * Displays information about a single skip option
+ * @param {Object} skip - Skip data object
+ * @param {Function} onSelect - Callback when skip is selected
+ * @param {Boolean} isSelected - Whether this skip is currently selected
+ */
 function SkipCard({ skip, onSelect, isSelected }) {
+  // Calculate total price including VAT
   const totalPrice = Math.round(skip.price_before_vat * (1 + skip.vat / 100));
 
   return (
@@ -146,7 +159,7 @@ function SkipCard({ skip, onSelect, isSelected }) {
       `}
       onClick={() => onSelect(skip.id)}
     >
-      {/* Skip Image Section */}
+      {/* Skip Image Section with fallback */}
       <div className="relative h-48 bg-gradient-to-br from-amber-100 to-orange-100 flex items-center justify-center overflow-hidden rounded-t-xl">
         <img
           src="https://i.ibb.co/dwPMwNB7/Business-Skip-Hire.jpg"
@@ -158,14 +171,14 @@ function SkipCard({ skip, onSelect, isSelected }) {
           }}
         />
 
-        {/* Size Badge */}
+        {/* Size Badge - shows skip size in yards */}
         <div className="absolute top-4 left-4">
           <span className="bg-blue-600 text-white font-bold px-3 py-1.5 rounded-full text-sm shadow-md">
             {skip.size} Yards
           </span>
         </div>
 
-        {/* Selection Indicator */}
+        {/* Selection Indicator - checkmark when selected */}
         {isSelected && (
           <div className="absolute top-4 right-4 bg-green-500 rounded-full p-2 shadow-md">
             <CheckIcon className="w-4 h-4 text-white" />
@@ -173,7 +186,7 @@ function SkipCard({ skip, onSelect, isSelected }) {
         )}
       </div>
 
-      {/* Card Content */}
+      {/* Card Content - skip details and features */}
       <div className="p-6">
         <div className="mb-4">
           <h3 className="text-xl font-bold text-gray-900 mb-2">{skip.size} Yard Skip</h3>
@@ -183,7 +196,7 @@ function SkipCard({ skip, onSelect, isSelected }) {
           </div>
         </div>
 
-        {/* Features */}
+        {/* Features List - road placement, heavy waste etc. */}
         <div className="space-y-2 mb-6">
           <div className="flex items-center justify-between">
             <span className="text-sm text-gray-600">Road Placement</span>
@@ -211,7 +224,7 @@ function SkipCard({ skip, onSelect, isSelected }) {
           )}
         </div>
 
-        {/* Price and Action */}
+        {/* Price and Action Button */}
         <div className="flex items-center justify-between pt-4 border-t border-gray-100">
           <div>
             <span className="text-3xl font-bold text-gray-900">£{totalPrice}</span>
@@ -247,15 +260,22 @@ function SkipCard({ skip, onSelect, isSelected }) {
   );
 }
 
-// Main App component
+/**
+ * Main App Component
+ * Handles skip data fetching and state management
+ * Renders the skip selection interface
+ */
 export default function App() {
+  // State management for skips, loading, and errors
   const [skips, setSkips] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [selectedSkipId, setSelectedSkipId] = useState(null);
 
+  // API endpoint for fetching skip data
   const API_URL = "https://app.wewantwaste.co.uk/api/skips/by-location?postcode=NR32&area=Lowestoft";
 
+  // Fetch skip data on component mount
   useEffect(() => {
     const fetchSkips = async () => {
       try {
@@ -275,11 +295,13 @@ export default function App() {
     fetchSkips();
   }, []);
 
+  // Handle skip selection
   const handleSelectSkip = (id) => {
     setSelectedSkipId(id);
     console.log(`Skip with ID ${id} selected!`);
   };
 
+  // Loading state UI
   if (loading) {
     return (
       <div className="min-h-screen bg-gradient-to-br from-slate-50 to-blue-50 flex items-center justify-center p-4">
@@ -292,6 +314,7 @@ export default function App() {
     );
   }
 
+  // Error state UI
   if (error) {
     return (
       <div className="min-h-screen bg-gradient-to-br from-slate-50 to-blue-50 flex items-center justify-center p-4">
@@ -307,11 +330,12 @@ export default function App() {
     );
   }
 
+  // Get the currently selected skip object
   const selectedSkip = skips.find((s) => s.id === selectedSkipId);
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50">
-      {/* Header */}
+      {/* Page Header with branding */}
       <div className="relative overflow-hidden bg-white border-b border-gray-100">
         <div className="absolute inset-0 bg-gradient-to-r from-blue-600/5 to-indigo-600/5" />
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-20">
@@ -334,16 +358,21 @@ export default function App() {
         </div>
       </div>
 
-      {/* Skip Selection Grid */}
+      {/* Skip Selection Grid - displays all available skips */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-16">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 lg:gap-8">
           {skips.map((skip) => (
-            <SkipCard key={skip.id} skip={skip} onSelect={handleSelectSkip} isSelected={selectedSkipId === skip.id} />
+            <SkipCard 
+              key={skip.id} 
+              skip={skip} 
+              onSelect={handleSelectSkip} 
+              isSelected={selectedSkipId === skip.id} 
+            />
           ))}
         </div>
       </div>
 
-      {/* Bottom CTA Section */}
+      {/* Sticky Bottom CTA - appears when a skip is selected */}
       {selectedSkipId && selectedSkip && (
         <div className="bg-white border-t border-gray-200 sticky bottom-0 shadow-lg z-50">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
