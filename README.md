@@ -1,6 +1,6 @@
 # 🚛 Skip Hire Selection Interface — React Redesign
 
-![Skip Hire Interface Preview](https://i.ibb.co/dwPMwNB7/Business-Skip-Hire.jpg)
+![Skip Hire Interface Preview](https://i.ibb.co/k2SvKkGL/Full-Stack-Developer-Instructions.jpg)
 
 A complete redesign of the WeWantWaste skip selection interface,  
 featuring a modern React implementation with responsive design and improved UX.
